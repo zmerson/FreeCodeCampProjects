@@ -3,7 +3,7 @@ const app = express()
 
 //  req => middleware => res
 //this is a simple middleware function.
-//we move it to a different file in future iterations: ./loger.js
+//we move it to a different file in future iterations: ./logger.js
 const logger = (req, res, next) => {
   const method = req.method
   const url = req.url
@@ -12,7 +12,7 @@ const logger = (req, res, next) => {
   next()
 }
 
-app.get('/', logger, (req, res) => { //we can replace the logger parameter withone line "app.use(logger)"
+app.get('/', logger, (req, res) => { //we can replace the logger parameter with one line "app.use(logger)"
   res.send('Home')
 })
 app.get('/about', logger, (req, res) => {
